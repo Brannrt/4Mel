@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090307">
+<title>Te amo💝</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #090307;
+  --red: #ff315c;
+  --pink: #ff9eb5;
+  --text: #fff0f3;
+  --muted: #c9aab4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 10% 15%, #60091e70, transparent 42%),
+    radial-gradient(ellipse at 90% 60%, #4b071b60, transparent 40%),
+    linear-gradient(160deg, #090307, #13050c 50%, #070205);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+  opacity: .12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+#progress {
+  position: fixed;
+  z-index: 60;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #ff315c, #ffb3c4);
+  box-shadow: 0 0 12px var(--red);
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  bottom: -35px;
+  color: var(--red);
+  opacity: 0;
+  text-shadow: 0 0 15px var(--red);
+  animation: rise linear forwards;
+}
+
+@keyframes rise {
+  10% { opacity: .7; }
+  100% { transform: translateY(-110vh) rotate(50deg); opacity: 0; }
+}
+
+header {
+  position: fixed;
+  top: 2px;
+  z-index: 50;
+  width: 100%;
+  min-height: 66px;
+  padding: 12px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: #090307bc;
+  border-bottom: 1px solid #ff77931c;
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  color: var(--pink);
+  font: 32px 'Great Vibes', cursive;
+  text-decoration: none;
+  text-shadow: 0 0 18px #ff315c55;
+}
+
+.music {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#musicBtn {
+  background: #ff315c0d;
+  border: 1px solid #ff779355;
+  color: #ffe8ed;
+  border-radius: 40px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font: 11px 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+#musicBtn:hover {
+  background: #ff315c25;
+  box-shadow: 0 0 20px #ff315c30;
+}
+
+.equalizer {
+  height: 17px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.equalizer span {
+  width: 2px;
+  height: 4px;
+  background: var(--pink);
+  border-radius: 4px;
+}
+
+.equalizer.playing span {
+  animation: equalize .55s ease-in-out infinite alternate;
+}
+
+.equalizer span:nth-child(2) { animation-delay: .2s; }
+.equalizer span:nth-child(3) { animation-delay: .4s; }
+.equalizer span:nth-child(4) { animation-delay: .1s; }
+
+@keyframes equalize {
+  to { height: 16px; }
+}
+
+section {
+  position: relative;
+  z-index: 2;
+  min-height: 100svh;
+  padding: 125px 22px 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.inner {
+  width: min(740px, 100%);
+}
+
+.kicker {
+  font-size: 10px;
+  letter-spacing: 5px;
+  line-height: 2;
+  color: var(--pink);
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  line-height: 1.12;
+  color: #fff0f4;
+  text-shadow: 0 0 35px #ff315c30;
+}
+
+h1 {
+  font-size: clamp(75px, 15vw, 145px);
+}
+
+h2 {
+  font-size: clamp(54px, 9vw, 88px);
+  margin-bottom: 28px;
+}
+
+p {
+  font-size: 13px;
+  line-height: 2.2;
+  font-weight: 300;
+  color: var(--muted);
+}
+
+.hero-subtitle {
+  margin-top: 20px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.heart {
+  display: inline-block;
+  color: var(--red);
+  font-size: 42px;
+  margin: 24px 0;
+  filter: drop-shadow(0 0 18px #ff315c80);
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.13); }
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+  padding: 14px 24px;
+  border: 1px solid #ff77936b;
+  border-radius: 40px;
+  background: linear-gradient(120deg, #ff315c1c, #ff315c05);
+  color: #fff0f3;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  transition: .35s;
+}
+
+.cta:hover {
+  border-color: var(--red);
+  box-shadow: 0 0 30px #ff315c30;
+  transform: translateY(-3px);
+}
+
+.scroll-note {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #b98b99;
+}
+
+.scroll-note span {
+  display: block;
+  font-size: 20px;
+  margin-top: 10px;
+  animation: down 1.5s infinite;
+}
+
+@keyframes down {
+  50% { transform: translateY(6px); }
+}
+
+.ornament {
+  color: var(--red);
+  letter-spacing: 9px;
+  margin: 25px 0;
+  font-size: 12px;
+}
+
+.letter {
+  position: relative;
+  padding: clamp(28px, 6vw, 55px);
+  margin: 30px auto;
+  border: 1px solid #ff77932c;
+  background:
+    linear-gradient(145deg, #ffffff08, transparent 50%),
+    #0c0509bd;
+  border-radius: 3px;
+  box-shadow: 0 20px 90px #0008, 0 0 50px #ff315c09;
+}
+
+.letter::before,
+.letter::after {
+  content: "✦";
+  position: absolute;
+  color: #ff7897;
+  opacity: .6;
+  font-size: 15px;
+}
+
+.letter::before { top: 13px; left: 15px; }
+.letter::after { bottom: 13px; right: 15px; }
+
+.letter p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 4vw, 27px);
+  line-height: 1.7;
+  color: #f3dce3;
+}
+
+.letter .small {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  line-height: 2.2;
+  color: var(--muted);
+  margin-top: 22px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 35px;
+}
+
+.tile {
+  padding: 28px 16px;
+  border: 1px solid #ff779326;
+  background: linear-gradient(145deg, #ff315c0b, #ffffff03);
+  transition: .4s;
+}
+
+.tile:hover {
+  transform: translateY(-5px);
+  border-color: #ff77935c;
+  background: #ff315c12;
+}
+
+.tile .icon {
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.tile h3 {
+  font: 25px 'Cormorant Garamond', serif;
+  color: #ffb6c7;
+  margin-bottom: 9px;
+}
+
+.tile p {
+  font-size: 11px;
+  line-height: 1.9;
+}
+
+.quote {
+  font: italic clamp(25px, 5vw, 39px)/1.55 'Cormorant Garamond', serif;
+  color: #f7dce4;
+}
+
+.signature {
+  font: 39px 'Great Vibes', cursive;
+  color: var(--pink);
+  margin-top: 25px;
+}
+
+.final {
+  min-height: 100svh;
+}
+
+.final-card {
+  padding: clamp(35px, 7vw, 75px) 20px;
+  border: 1px solid #ff77934a;
+  background:
+    radial-gradient(ellipse at center, #7a0a2945, transparent 68%),
+    #09030788;
+  box-shadow: 0 0 90px #ff315c0e, inset 0 0 60px #ff315c06;
+  position: relative;
+}
+
+.final-card::before,
+.final-card::after {
+  content: "✧";
+  color: var(--pink);
+  position: absolute;
+  font-size: 23px;
+  opacity: .65;
+}
+
+.final-card::before { top: 16px; left: 20px; }
+.final-card::after { bottom: 16px; right: 20px; }
+
+.final h2 {
+  font-size: clamp(54px, 10vw, 95px);
+}
+
+.final-question {
+  font: italic clamp(27px, 5.5vw, 43px)/1.5 'Cormorant Garamond', serif;
+  color: #fff1f5;
+  text-shadow: 0 0 25px #ff315c50;
+}
+
+.final p {
+  margin-top: 25px;
+  font-size: 11px;
+}
+
+footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 35px 15px 45px;
+  border-top: 1px solid #ff77931c;
+  color: #a98390;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+footer span { color: var(--pink); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .9s ease, transform .9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 520px) {
+  header { padding: 12px 5%; }
+  .brand { font-size: 28px; }
+  #musicBtn { padding: 10px 11px; letter-spacing: 0; }
+  section { padding: 110px 20px 75px; }
+  .grid { gap: 10px; }
+  .tile { padding: 23px 10px; }
+  .kicker { letter-spacing: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+<div id="progress"></div>
+<div id="particles"></div>
+
+
+<audio id="song" src="cancion.mp3" loop preload="none"></audio>
+
+<header>
+  <a class="brand" href="#inicio">Te amo💝</a>
+
+  <div class="music">
+    <div class="equalizer" id="equalizer">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <button id="musicBtn" type="button" onclick="toggleMusic()">
+      ♫ Escuchar música
+    </button>
+  </div>
+</header>
+
+<!-- 1. INICIO -->
+<section id="inicio">
+  <div class="inner reveal">
+    <div class="kicker">Con todo mi amor</div>
+    <h1>Para Mel</h1>
+    <div class="heart">♥</div>
+    <p class="hero-subtitle">
+      Hay algo que siempre quise preguntarte...
+    </p>
+    <p style="margin-top:20px">
+      Y a pesar de todo lo que hemos pasado<br>
+      cada dia sigues logrando enamorarme mas.
+    </p>
+    <a class="cta" href="#carta">Lo que me haces sentir🩷<span>↘</span></a>
+  </div>
+  <div class="scroll-note"> <span>⌄</span></div>
+</section>
+
+<!-- 2. CARTA -->
+<section id="carta">
+  <div class="inner reveal">
+    <div class="kicker">Con todo mi corazon</div>
+    <h2>Querida Mel...</h2>
+
+    <div class="letter">
+      <p>
+        No existen palabras para describirte lo que siento por ti, y por mas que trate de demostrarlo con hechos jamas bastara porque esto va mas alla de un te quiero o un te amo, eres la niña con la que quiero estar y compartir mas que mi tiempo y mi vida, en verdad gracias por toda la felicidad que me das.
+      </p>
+      <div class="ornament">✧ ♥ ✧</div>
+      <p class="small">
+        Hay personas que llegan para marcar tu vida y te hacen querer pasarla a su lado, para mi tu eres esa persona, dia con dia me haces amarte mas y el saber que tengo a alguien tan increible conmigo me hace el hombre mas afortunado de verdad.
+      </p>
+    </div>
+
+    <a class="cta" href="#especial">¿Por qué tu?</a>
+  </div>
+</section>
+
+<!-- 3. LO ESPECIAL -->
+<section id="especial">
+  <div class="inner reveal">
+    <div class="kicker">Lo que veo en ti</div>
+    <h2>Eres mas que perfecta</h2>
+    <p class="quote">
+      No solamente por lo hermosa que eres, tanto en personalidad como fisicamente porque dejando de lado que eres la niña mas linda que existe y siempre estas para mi en malas y buenas, me hiciste amar cada cosa en ti, amo tu forma de demostrar cariño, tu humor hasta cuando te enojas, amo todo lo malo que dices tener y todo lo bueno que no ves en ti, simplemente te amo a ti y todo lo que tiene que ver contigo. 
+    </p>
+    <div class="ornament">──── ♥ ────</div>
+    <p>
+      Eres mas de lo que siempre soñe, eres mi persona favorita y eso jamas va a cambiar.
+    </p>
+    <a class="cta" href="#razones">Los pequeños detalles🩷</a>
+  </div>
+</section>
+
+<!-- 4. DETALLES -->
+<section id="razones">
+  <div class="inner reveal">
+    <div class="kicker">Hay millones de cosas</div>
+    <h2>Sabes Mel...</h2>
+    <p>Me gustan esas pequeñas cosas que te hacen ser tú.</p>
+
+    <div class="grid">
+      <div class="tile">
+        <div class="icon">🌹</div>
+        <h3>Tu belleza</h3>
+        <p>Podria verte una infinidad de veces y siempre voy a seguir encontrando algo nuevo en ti que amar</p>
+      </div>
+      <div class="tile">
+        <div class="icon">💌</div>
+        <h3>Tu personalidad</h3>
+        <p>De las cosas que mas amo en ti, esa forma tan unica de ver todo y de ser que me encanta</p>
+      </div>
+      <div class="tile">
+        <div class="icon">🌙</div>
+        <h3>Tu compañía</h3>
+        <p>Cada momento a tu lado es un momento feliz y algo que puedo recordar siempre de la mejor manera</p>
+      </div>
+      <div class="tile">
+        <div class="icon">♥</div>
+        <h3>Que seas tú</h3>
+        <p>Te amo tal cual eres, no cambiaria ni la mas minima cosa de ti porque tu me haces ser yo mismo</p>
+      </div>
+    </div>
+
+    <a class="cta" href="#futuro">Un futuro juntos🩷</a>
+  </div>
+</section>
+
+<!-- 5. LO QUE DESEO -->
+<section id="futuro">
+  <div class="inner reveal">
+    <div class="kicker">Lo que siempre soñe</div>
+    <h2>Tú y yo</h2>
+    <div class="letter">
+      <p>
+        Me gustaria compartir contigo los dias bonitos
+        y aun mas estar juntos en los dias malos
+        reirnos por todo y compartir nuestra felicidad, poder contarnos nuestro dia a dia, que seas la persona a la que le pueda contar mis problemas y preocupaciones y tu los tuyos, poder ser tu compañia y que incluso nuestros problemas se sientan bonitos por pasarlos juntos, conocer cada detalle de nosotros y ser parte de tus sueños por lograr, quiero un dia mirar atras y darme cuenta que entre tantas platicas, risas, tantos momentos lindos y problemas salio algo tan lindo, si hay algo que realmente quiero es tener la oportunidad de poder ser parte de tu vida y salir adelante juntos. 
+      </p>
+      <div class="ornament">✧ ✧ ✧</div>
+      <p>
+        No quiero que todo sea perfecto porque es imposible, me gustaria que fuera algo sincero, bonito y nuestro porque de cualquier manera todo se vuelve mas lindo estando contigo
+      </p>
+    </div>
+    <a class="cta" href="#pregunta">Mi sueño💝</a>
+  </div>
+</section>
+
+<section id="pregunta" class="final">
+  <div class="inner reveal">
+    <div class="final-card">
+      <div class="kicker">Ahora si, eso que siempre quise preguntarte</div>
+      <div class="heart">♥</div>
+      <h2>Mel...</h2>
+      <div class="final-question">
+        ¿Puedo ser tu novio? 
+      </div>
+      <div class="ornament">✧ ─ ♥ ─ ✧</div>
+      <p>
+        
+      </p>
+      <div class="signature"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  HECHO CON TODO MI AMOR Y PENSANDO EN TI
+  <br><br>
+  <span>PARA MEL EL AMOR DE MI VIDA❤️‍🩹</span>
+</footer>
+
+<script>
+const song = document.getElementById('song');
+const musicBtn = document.getElementById('musicBtn');
+const equalizer = document.getElementById('equalizer');
+
+async function toggleMusic() {
+  if (song.paused) {
+    try {
+      await song.play();
+      musicBtn.textContent = '♫ Pausar música';
+      equalizer.classList.add('playing');
+    } catch (error) {
+      musicBtn.textContent = 'No se encontró cancion.mp3';
+    }
+  } else {
+    song.pause();
+    musicBtn.textContent = '♫ Escuchar música';
+    equalizer.classList.remove('playing');
+  }
+}
+
+song.addEventListener('ended', () => {
+  musicBtn.textContent = '♫ Escuchar música';
+  equalizer.classList.remove('playing');
+});
+
+song.addEventListener('error', () => {
+  musicBtn.textContent = '♫ Escuchar música';
+});
+
+const particles = document.getElementById('particles');
+
+function createParticle() {
+  const item = document.createElement('span');
+  item.className = 'particle';
+  item.textContent = Math.random() > 0.35 ? '♥' : '✧';
+  item.style.left = Math.random() * 100 + 'vw';
+  item.style.fontSize = (10 + Math.random() * 16) + 'px';
+  item.style.animationDuration = (8 + Math.random() * 8) + 's';
+  particles.appendChild(item);
+  setTimeout(() => item.remove(), 17000);
+}
+
+setInterval(createParticle, 650);
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+function updateProgress() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const percent = max > 0 ? (window.scrollY / max) * 100 : 0;
+  document.getElementById('progress').style.width = percent + '%';
+}
+
+window.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+</script>
+</body>
+</html>
